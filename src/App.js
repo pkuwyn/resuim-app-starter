@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
+import { Viewer, Entity } from "resium";
+
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles({
+  "@global": {
+    ".cesium-widget-credits": {
+      display: "none !important",
+    },
+  },
+});
+
+const App = () => {
+  useStyles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Viewer
+      full
+      baseLayerPicker={false}
+      animation={false}
+      timeline={false}
+      vrButton={false}
+      homeButton={false}
+      sceneModePicker={false}
+      navigationHelpButton={false}
+      geocoder={false}
+      skyBox={false}
+    />
   );
-}
+};
 
 export default App;
